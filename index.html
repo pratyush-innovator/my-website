@@ -24,5 +24,13 @@
 
     <h2>💡 Goal</h2>
     <p>My goal is to document my learning journey, build technical projects, and eventually reach the position of CEO at Microsoft.</p>
+    
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/my-website/sw.js')
+      .then(() => console.log('Service Worker Registered!'));
+  }
+</script>
 </body>
 </html>
