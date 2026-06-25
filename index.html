@@ -26,4 +26,24 @@
 </div>
 
 </body>
+<div id="chat-container">
+    <div id="chat-history"></div>
+    <input type="text" id="user-input" placeholder="AI se kuch pucho...">
+    <button onclick="getAIResponse()">Send</button>
+</div>
+<script>
+function getAIResponse() {
+    let userInput = document.getElementById("user-input").value;
+    let chatHistory = document.getElementById("chat-history");
+    
+    // User ka message dikhao
+    chatHistory.innerHTML += "<p><b>Tum:</b> " + userInput + "</p>";
+    
+    // AI ka response (abhi basic rakha hai)
+    chatHistory.innerHTML += "<p><b>AI:</b> Main abhi seekh raha hoon, Pratyush!</p>";
+    
+    // Input box khali karo
+    document.getElementById("user-input").value = "";
+}
+</script>
 </html> 
