@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pratyush's AI Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
+    <title>Pratyush's Official Portfolio</title>
 </head>
 <body>
-
-    <h1>Welcome to Pratyush's Official Website!</h1>
+    <h1>Welcome to Pratyush's Official Website</h1>
     <p>15-year-old student, tech enthusiast, and future innovator.</p>
 
-    <!-- AI Feature Section -->
     <div id="ai-section" style="margin: 20px; padding: 20px; border: 2px dashed #007bff;">
-        <h2>AI Assistant (Offline Ready)</h2>
+        <h2>AI Assistant</h2>
         <input type="text" id="user-input" placeholder="Kuch pucho...">
         <button onclick="handleAI()">Ask AI</button>
         <div id="response-area" style="margin-top: 10px; font-weight: bold;"></div>
     </div>
 
-    <script type="module"
-        // PWA Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js')
-            .then(() => console.log('Service Worker registered successfully!'));
+    <script>
+        function handleAI() {
+            const input = document.getElementById('user-input').value;
+            const responseArea = document.getElementById('response-area');
+            if (input.trim() !== "") {
+                responseArea.innerText = "AI kehta hai: Abhi main seekh raha hoon, jaldi update aa jayega!";
+            } else {
+                responseArea.innerText = "Kuch type toh karo!";
+            }
         }
+    </script>
+</body>
+</html>
