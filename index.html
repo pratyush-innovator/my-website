@@ -20,21 +20,31 @@
         <div id="response-area" style="margin-top: 10px; font-weight: bold;"></div>
     </div>
 
-    <script>
+    <script type="module"
         // PWA Service Worker Registration
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/sw.js')
             .then(() => console.log('Service Worker registered successfully!'));
         }
 
-        // Basic AI Placeholder Function
-        function handleAI() {
-            const input = document.getElementById('user-input').value;
-            const output = document.getElementById('response-area');
-            if(input) {
-                output.innerText = "AI: System offline. Features loading soon...";
-            }
-        }
+      
+       
+        // AI Pipeline (Offline - Transformers.js)
+import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2';
+
+const classifier = await pipeline('sentiment-analysis');
+
+async function handleAI() {
+    const input = document.getElementById('user-input').value;
+    const output = document.getElementById('response-area');
+    
+    output.innerText = "Thinking...";
+    const result = await classifier(input);
+    
+    // Yahan AI ka output dikhega
+    output.innerText = "AI: " + result[0].label + " (" + Math.round(result[0].score * 100) + "%)";
+}
+window.handleAI = handleAI; // Button ko function dikhane ke liye
     </script>
 </body>
 </html>
