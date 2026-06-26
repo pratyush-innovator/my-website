@@ -39,7 +39,7 @@ async function handleAI() {
     const output = document.getElementById('response-area');
     
     output.innerText = "Thinking...";
-    const result = await classifier(input);
+    const result = await classifier (input);
     
     // Yahan AI ka output dikhega
     output.innerText = "AI: " + result[0].label + " (" + Math.round(result[0].score * 100) + "%)";
