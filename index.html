@@ -1,49 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pratyush Teach</title>
+    <title>Pratyush's AI Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js');
-  }
-</script>
 </head>
 <body>
 
-<img src="pk.png" width="150px">
+    <h1>Welcome to Pratyush's Official Website!</h1>
+    <p>15-year-old student, tech enthusiast, and future innovator.</p>
 
-<h1>Welcome to Pratyush's official website!</h1>
+    <!-- AI Feature Section -->
+    <div id="ai-section" style="margin: 20px; padding: 20px; border: 2px dashed #007bff;">
+        <h2>AI Assistant (Offline Ready)</h2>
+        <input type="text" id="user-input" placeholder="Kuch pucho...">
+        <button onclick="handleAI()">Ask AI</button>
+        <div id="response-area" style="margin-top: 10px; font-weight: bold;"></div>
+    </div>
 
-<div id="profile">
-    <h2>About Me</h2>
-    <p>Namaste! Main Pratyush hoon. Main ek coder hoon aur mujhe naye projects banana pasand hai.</p>
-    <p>Age: 15 saal</p>
-    <p>Mera maqsad hai technology ki duniya mein kuch bada karna!</p>
-</div>
+    <script>
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+            .then(() => console.log('Service Worker registered successfully!'));
+        }
 
+        // Basic AI Placeholder Function
+        function handleAI() {
+            const input = document.getElementById('user-input').value;
+            const output = document.getElementById('response-area');
+            if(input) {
+                output.innerText = "AI: System offline. Features loading soon...";
+            }
+        }
+    </script>
 </body>
-<div id="chat-container">
-    <div id="chat-history"></div>
-    <input type="text" id="user-input" placeholder="AI se kuch pucho...">
-    <button onclick="getAIResponse()">Send</button>
-</div>
-<script>
-function getAIResponse() {
-    let userInput = document.getElementById("user-input").value;
-    let chatHistory = document.getElementById("chat-history");
-    
-    // User ka message dikhao
-    chatHistory.innerHTML += "<p><b>Tum:</b> " + userInput + "</p>";
-    
-    // AI ka response (abhi basic rakha hai)
-    chatHistory.innerHTML += "<p><b>AI:</b> Main abhi seekh raha hoon, Pratyush!</p>";
-    
-    // Input box khali karo
-    document.getElementById("user-input").value = "";
-}
-</script>
-</html> 
+</html>
